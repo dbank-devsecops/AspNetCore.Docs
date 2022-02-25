@@ -428,10 +428,10 @@ The following example POST route handler uses a binding source of body (as JSON)
 
 [!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pbp&highlight=5)]
 
-The parameters in the preceding examples are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read request data manually.
+The parameters in the preceding examples are all bound from request data automatically, without the need for user code.
 
 <!-- TODO -->
-<!-- Show examples of the first four supported binding sources -->
+<!-- Show examples of the first four supported binding sources written with user code -->
 
 ### Explicit Parameter Binding
 
