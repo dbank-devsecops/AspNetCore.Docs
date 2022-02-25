@@ -429,7 +429,10 @@ builder.Services.AddSingleton<Service>();
 
 var app = builder.Build();
 
-app.MapGet("/{id}", (int id, int page, Service service) => { });
+app.MapGet("/{id}", (int id,
+                     int page,
+                     [FromHeader(Name = "X-CUSTOM-HEADER")] string customHeader,
+                     Service service) => { });
 
 class Service { }
 #endregion

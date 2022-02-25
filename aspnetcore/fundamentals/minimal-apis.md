@@ -412,7 +412,7 @@ Supported binding sources:
 
 The following example route handler uses some of these parameter binding sources:
 
-[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb)]
+[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb&highlight=8)]
 
 The following table shows the relationship between the parameters used in the preceding example and the associated binding sources.
 
@@ -422,7 +422,7 @@ The following table shows the relationship between the parameters used in the pr
 | `page` | query string |
 | `service` | Provided by dependency injection |
 
-The preceding parameters are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read the request data manually.
+The preceding parameters are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read request data manually.
 
 <!-- TODO -->
 <!-- Show examples of the first four supported binding sources -->
