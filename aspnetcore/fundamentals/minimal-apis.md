@@ -410,9 +410,9 @@ Supported binding sources:
 > [!NOTE]
 > Binding from forms is ***not*** natively supported in .NET 6.
 
-The following example route handler uses some of these parameter binding sources:
+The following example GET route handler uses some of these parameter binding sources:
 
-[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb&highlight=8-11)]
+[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pbg&highlight=8-11)]
 
 The following table shows the relationship between the parameters used in the preceding example and the associated binding sources.
 
@@ -422,26 +422,16 @@ The following table shows the relationship between the parameters used in the pr
 | `page` | query string |
 | `service` | Provided by dependency injection |
 
-The preceding parameters are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read request data manually.
+The HTTP methods `GET`, `HEAD`, `OPTIONS`, and `DELETE` don't implicitly bind from body. To bind from body (as JSON) for these HTTP methods, [bind explicitly](#explicit-parameter-binding) with [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) or read from the <xref:Microsoft.AspNetCore.Http.HttpRequest>.
+
+The following example POST route handler uses a binding source of body (as JSON) for the `person` parameter:
+
+[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pbp&highlight=5)]
+
+The parameters in the preceding examples are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read request data manually.
 
 <!-- TODO -->
 <!-- Show examples of the first four supported binding sources -->
-
-### GET, HEAD, OPTIONS, DELETE
-
-The HTTP methods `GET`, `HEAD`, `OPTIONS`, and `DELETE` don't implicitly bind from body. Bind explicitly with  [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) or read from the request body. All other binding sources are supported.
-
-**NOTE**: To support the case of `GET` with a body, directly read it from the <xref:Microsoft.AspNetCore.Http.HttpRequest>.
-
-### POST, PUT, PATCH, etc
-
-<!-- TODO - finish Service so post works with person -->
-[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_ov)]
-
-| Parameter | Binding Source |
-| --------- | -------------- |
-| `person`      | body (as JSON) |
-| `service`   | Provided by dependency injection |
 
 ### Explicit Parameter Binding
 
