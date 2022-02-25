@@ -4,7 +4,7 @@ author: rick-anderson
 description: Provides an overview of minimal APIs in ASP.NET Core 6.0.
 ms.author: riande
 monikerRange: '>= aspnetcore-6.0'
-ms.date: 01/27/2022
+ms.date: 02/25/2022
 no-loc: ["Blazor Hybrid", Home, Privacy, Kestrel, appsettings.json, "ASP.NET Core Identity", cookie, Cookie, Blazor, "Blazor Server", "Blazor WebAssembly", "Identity", "Let's Encrypt", Razor, SignalR]
 uid: fundamentals/minimal-apis
 ---
@@ -407,22 +407,31 @@ Supported binding sources:
 * Services provided by dependency injection
 * Custom
 
-**NOTE**: Binding from forms is ***not*** natively supported in .NET 6.
+> [!NOTE]
+> Binding from forms is ***not*** natively supported in .NET 6.
+
+The following example route handler uses some of these parameter binding sources:
+
+[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb)]
+
+The following table shows the relationship between the parameters used in the preceding example and the associated binding sources.
+
+| Parameter | Binding Source |
+|--|--|
+| `id` | route value |
+| `page` | query string |
+| `service` | Provided by dependency injection |
+
+The preceding parameters are all bound from request data automatically, without the need for user code. To appreciate the convenience that this provides, the following examples show how to read the request data manually.
+
+<!-- TODO -->
+<!-- Show examples of the first four supported binding sources -->
 
 ### GET, HEAD, OPTIONS, DELETE
 
 The HTTP methods `GET`, `HEAD`, `OPTIONS`, and `DELETE` don't implicitly bind from body. Bind explicitly with  [`[FromBody]`](xref:Microsoft.AspNetCore.Mvc.FromBodyAttribute) or read from the request body. All other binding sources are supported.
 
 **NOTE**: To support the case of `GET` with a body, directly read it from the <xref:Microsoft.AspNetCore.Http.HttpRequest>.
-
-<!-- TODO - finish Service so app displays id and page -->
-[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_con)]
-
-| Parameter | Binding Source |
-| --------- | -------------- |
-| `id`      | route value |
-| `page`    | query string |
-| `service`   | Provided by dependency injection |
 
 ### POST, PUT, PATCH, etc
 
