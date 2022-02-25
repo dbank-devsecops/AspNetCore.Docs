@@ -412,7 +412,7 @@ Supported binding sources:
 
 The following example route handler uses some of these parameter binding sources:
 
-[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb&highlight=8)]
+[!code-csharp[](minimal-apis/samples/WebMinAPIs/Program.cs?name=snippet_pb&highlight=8-11)]
 
 The following table shows the relationship between the parameters used in the preceding example and the associated binding sources.
 
