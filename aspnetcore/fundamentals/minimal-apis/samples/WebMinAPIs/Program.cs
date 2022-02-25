@@ -1,5 +1,5 @@
 #define Default // Default CREATE P1 PM PE I1 I0 IP CERT CERT2 CERT3 RE CONFIG LOG #i REB 
-// CONFIGB LOGB IWHB DEP R1 LE LF IM SM NR NR2 RP WILD CON OV EPB OP1 OP2 OP3 OP4
+// CONFIGB LOGB IWHB DEP R1 LE LF IM SM NR NR2 RP WILD PB OV EPB OP1 OP2 OP3 OP4
 // CB BA CJSON MULTI STREAM XTN AUTH1 AUTH2 AUTH3 AUTH4 CORS CORS2 SWAG SWAG2 
 // FIL2 IHB CHNGR ADDMID
 #if NEVER
@@ -420,8 +420,8 @@ app.MapGet("/posts/{*rest}", (string rest) => $"Routing to {rest}");
 
 app.Run();
 #endregion
-#elif CON
-#region snippet_con
+#elif PB
+#region snippet_pb
 var builder = WebApplication.CreateBuilder(args);
 
 // Added as service
